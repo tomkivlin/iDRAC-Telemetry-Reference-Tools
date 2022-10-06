@@ -176,7 +176,7 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-testvercomp $(docker-compose --version | cut -d ' ' -f 4 | sed 's/^v//') 2.2.0 '>'
+# testvercomp $(docker compose --version | cut -d ' ' -f 4 | sed 's/^v//') 2.2.0 '>'
 set -e
 
 # re-read env settings so we dont regenerate them unnecessarily
@@ -220,7 +220,7 @@ touch $topdir/docker-compose-files/container-info-promgrafana.txt
 
 case $1 in
   rm)
-    docker-compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} rm -f
+    docker compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} rm -f
     ;;
 
   setup)
@@ -270,11 +270,11 @@ case $1 in
         echo -n "Removing volume: $volume"
         docker volume rm $volume
       fi
-      docker-compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} up ${BUILD_ARG} ${DETACH_ARG}
+      docker compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} up ${BUILD_ARG} ${DETACH_ARG}
       ;;  
 
   stop)
-    docker-compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} stop
+    docker compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} stop
     ;;
 
   start)  
@@ -290,9 +290,9 @@ case $1 in
 
     echo "Set up environment file in $topdir/.env"
     echo "To run manually, run the following command line:"
-    echo "docker-compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} up ${BUILD_ARG} ${DETACH_ARG}"
+    echo "docker compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} up ${BUILD_ARG} ${DETACH_ARG}"
     echo
-    docker-compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} up ${BUILD_ARG} ${DETACH_ARG}
+    docker compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} up ${BUILD_ARG} ${DETACH_ARG}
     ;;
 
   *)
@@ -317,7 +317,7 @@ influx_setup_finish() {
 
     echo "grafana container setup done for datasource and dashboards. Shutting down."
   
-    docker-compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} stop
+    docker compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} stop
 
 #  echo "Removing completed setup containers that are no longer needed"
     docker container rm -v $(docker container ls -a --filter ancestor=idrac-telemetry-reference-tools/setup -q)
@@ -332,7 +332,7 @@ prometheus_setup_finish() {
 
     echo "grafana container setup done for datasource and dashboards. Shutting down."
   
-    docker-compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} stop
+    docker compose --project-directory $topdir -f $scriptdir/docker-compose.yml ${PROFILE_ARG} stop
 
 #  echo "Removing completed setup containers that are no longer needed"    
     docker container rm -v $(docker container ls -a --filter ancestor=idrac-telemetry-reference-tools/setupprometheus -q)
