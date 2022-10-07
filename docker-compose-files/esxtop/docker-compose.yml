@@ -1,0 +1,17 @@
+services:
+  dataserv:
+    container_name: dataserv
+    build: ./dataserv
+    volumes: 
+        - ./dataserv:/csv:z
+    networks:
+      - idrac-telemetry-reference-tools_host-bridge-net
+    ports:
+      - 5000:5000
+  # grafana:
+  #   build: ./grafana
+  #   ports: 
+  #     - 3000:3000
+networks:
+  idrac-telemetry-reference-tools_host-bridge-net:
+    external: true

@@ -103,6 +103,18 @@ volumes:
   dashboards:
 
 services:
+  # dataserv:
+  #   container_name: dataserv
+  #   build: ./dataserv
+  #   volumes: 
+  #       - ./dataserv:/csv:z
+  #   profiles:
+  #     - core
+  #   networks:
+  #     - host-bridge-net
+  #   ports:
+  #     - "5000:5000"
+
   activemq:
     container_name: activemq
     image: rmohr/activemq:latest
