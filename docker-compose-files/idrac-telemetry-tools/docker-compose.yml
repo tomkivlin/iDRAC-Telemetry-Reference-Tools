@@ -73,7 +73,7 @@ x-arg-base: &base-args
 
 x-build-base: &base-build
     context: .
-    dockerfile: docker-compose-files/Dockerfile
+    dockerfile: Dockerfile
     args:
       <<: *base-args
 
@@ -144,7 +144,7 @@ services:
     image: idrac-telemetry-reference-tools/configui:latest
     build:
       <<: *base-build
-      dockerfile: docker-compose-files/Dockerfile.configui
+      dockerfile: Dockerfile.configui
       args:
         <<: *base-args
         CMD: configui
@@ -252,7 +252,7 @@ services:
   #     INFLUX_BUCKET:
   #     INFLUX_TOKEN:
   #   env_file:
-  #     - ${PWD}/docker-compose-files/container-info-influx-pump.txt
+  #     - ${PWD}/container-info-influx-pump.txt
   #   profiles:
   #     - influx-pump
   #   build:
@@ -266,7 +266,7 @@ services:
   #   environment:
   #     <<: *messagebus-env
   #   env_file:
-  #     - ${PWD}/docker-compose-files/container-info-influx-pump.txt
+  #     - ${PWD}/container-info-influx-pump.txt
   #   depends_on:
   #     - influx
   #     - activemq
@@ -276,7 +276,7 @@ services:
   # setup-influx-pump:
   #   build:
   #     <<: *base-build
-  #     dockerfile: docker-compose-files/Dockerfile.setup
+  #     dockerfile: Dockerfile.setup
   #   image: idrac-telemetry-reference-tools/setup:latest
   #   profiles:
   #     - setup-influx-test-db
@@ -291,11 +291,11 @@ services:
   #     - host-bridge-net
   #   volumes:
   #     - type: bind
-  #       source: ${PWD}/docker-compose-files/initialize_influx_pump.sh
+  #       source: ${PWD}/initialize_influx_pump.sh
   #       target: /extrabin/initialize_influx_pump.sh
   #       read_only: true
   #     - type: bind
-  #       source: ${PWD}/docker-compose-files/container-info-influx-pump.txt
+  #       source: ${PWD}/container-info-influx-pump.txt
   #       target: /config/container-info-influx-pump.txt
   #   entrypoint: ["/extrabin/initialize_influx_pump.sh"]
   #   command: []
@@ -348,7 +348,7 @@ services:
   # grafana-setup-influx-datasource:
   #   build:
   #     <<: *base-build
-  #     dockerfile: docker-compose-files/Dockerfile.setup
+  #     dockerfile: Dockerfile.setup
   #   image: idrac-telemetry-reference-tools/setup:latest
   #   profiles:
   #     - setup-influx-test-db
@@ -367,14 +367,14 @@ services:
   #     - host-bridge-net
   #   volumes:
   #     - type: bind
-  #       source: ${PWD}/docker-compose-files/initialize_grafana_influx_datasource.sh
+  #       source: ${PWD}/initialize_grafana_influx_datasource.sh
   #       target: /extrabin/initialize_grafana_influx_datasource.sh
   #       read_only: true
   #     - type: bind
-  #       source: ${PWD}/docker-compose-files/container-info-grafana.txt
+  #       source: ${PWD}/container-info-grafana.txt
   #       target: /config/container-info-grafana.txt
   #     - type: bind
-  #       source: ${PWD}/docker-compose-files/container-info-promgrafana.txt
+  #       source: ${PWD}/container-info-promgrafana.txt
   #       target: /config/container-info-promgrafana.txt
   #     - type: bind
   #       source: ${PWD}/dashboards
@@ -465,7 +465,7 @@ services:
   setup-prometheus-pump:
     build:
       <<: *base-build
-      dockerfile: docker-compose-files/Dockerfile.setup
+      dockerfile: Dockerfile.setup
     image: idrac-telemetry-reference-tools/setupprometheus:latest
     profiles:
       - setup-prometheus-test-db

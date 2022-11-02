@@ -1,7 +1,9 @@
 #!/bin/bash
 
 scriptdir=$(cd $(dirname $0); pwd)
+# echo $scriptdir
 topdir=$(cd $scriptdir/../; pwd)
+# echo $topdir
 cd $topdir
 
 if [[ $(id -u) = 0 ]]; then
@@ -214,9 +216,9 @@ if [ -z $SPLUNK_HEC_INDEX ]; then
 fi
 
  # remove dependency on setup influx-test-db
-touch $topdir/docker-compose-files/container-info-influx-pump.txt 
-touch $topdir/docker-compose-files/container-info-grafana.txt
-touch $topdir/docker-compose-files/container-info-promgrafana.txt
+touch $topdir/idrac-telemetry-tools/container-info-influx-pump.txt 
+touch $topdir/idrac-telemetry-tools/container-info-grafana.txt
+touch $topdir/idrac-telemetry-tools/container-info-promgrafana.txt
 
 case $1 in
   rm)
@@ -245,7 +247,7 @@ case $1 in
       BUILD_ARG=
       #eval set -- "start"
 
-      for i in  $topdir/docker-compose-files/container-info-influx-pump.txt $topdir/docker-compose-files/container-info-grafana.txt $topdir/docker-compose-files/container-info-promgrafana.txt
+      for i in  $topdir/idrac-telemetry-tools/container-info-influx-pump.txt $topdir/idrac-telemetry-tools/container-info-grafana.txt $topdir/idrac-telemetry-tools/container-info-promgrafana.txt
       do
         rm -f $i
         touch $i
@@ -278,12 +280,12 @@ case $1 in
     ;;
 
   start)  
-    if  [[ -n $INFLUX ]] && [[ ! -s docker-compose-files/container-info-influx-pump.txt ]]; then
+    if  [[ -n $INFLUX ]] && [[ ! -s idrac-telemetry-tools/container-info-influx-pump.txt ]]; then
       echo "Influx must be set up before running. Please run setup --influx-test-db first"
       exit 1
     fi
     echo "prometheus variable is: $PROMETHEUS"
-    if  [[ -n $PROMETHEUS ]] && [[ ! -s docker-compose-files/container-info-promgrafana.txt ]]; then
+    if  [[ -n $PROMETHEUS ]] && [[ ! -s idrac-telemetry-tools/container-info-promgrafana.txt ]]; then
       echo "Prometheus must be set up before running. Please run setup --prometheus-test-db first"
       exit 1
     fi
@@ -302,14 +304,14 @@ case $1 in
 esac
 
 influx_setup_finish() {
-  while ! grep INFLUX_TOKEN $topdir/docker-compose-files/container-info-influx-pump.txt;
+  while ! grep INFLUX_TOKEN $topdir/idrac-telemetry-tools/container-info-influx-pump.txt;
   do
     echo "Waiting for container setup to finish"
     sleep 1
   done
   echo "Influx pump container setup done. "
 
-  while ! grep GRAFANA_DASHBOARD_CREATED $topdir/docker-compose-files/container-info-grafana.txt;
+  while ! grep GRAFANA_DASHBOARD_CREATED $topdir/idrac-telemetry-tools/container-info-grafana.txt;
   do
     echo "Waiting for grafana container setup Influx DATA_SOURCE & DASHBOARD to finish"
     sleep 1
@@ -324,7 +326,7 @@ influx_setup_finish() {
 }
 
 prometheus_setup_finish() {
-  while ! grep GRAFANA_PROM_DASHBOARD_CREATED $topdir/docker-compose-files/container-info-promgrafana.txt;
+  while ! grep GRAFANA_PROM_DASHBOARD_CREATED $topdir/idrac-telemetry-tools/container-info-promgrafana.txt;
   do
     echo "Waiting for grafana container setup Prometheus DATA_SOURCE & DASHBOARD to finish"
     sleep 1
