@@ -137,6 +137,9 @@ services:
       CONFIGUI_HTTP_PORT: 8082       #sample reference - specify web application port
     ports:
       - "8080:8082"
+    networks:
+      - host-bridge-net
+
 
   dbdiscauth:
     <<: *refdaemon
@@ -149,6 +152,8 @@ services:
       args:
         <<: *base-args
         CMD: dbdiscauth
+    networks:
+      - host-bridge-net
 
 
   redfishread:
@@ -159,6 +164,8 @@ services:
       args:
         <<: *base-args
         CMD: redfishread
+    networks:
+      - host-bridge-net
 
 
   grafana:
@@ -189,15 +196,9 @@ services:
       - ./grafana-provisioning/:/etc/grafana/provisioning
     profiles:
       - grafana
-      # - setup-influx-test-db
       - setup-prometheus-test-db
-      # - influx-test-db
       - prometheus-test-db
-      # - timescale-test-db
-    # depends_on:
-    #   - influx
     environment:
-      # <<: *influx-env
       <<: *prometheus-env
       <<: *grafana-env
       GF_INSTALL_PLUGINS: grafana-polystat-panel
@@ -261,10 +262,13 @@ services:
     #
     ############################################################################
     <<: *refdaemon
+    container_name: prometheus-ingester
     image: idrac-telemetry-reference-tools/prometheuspump:latest
     profiles:
       - prometheus-pump
+      - prometheus-test-db
     depends_on:
+      - prometheus
       # - activemq
     environment:
       <<: *messagebus-env
@@ -275,16 +279,18 @@ services:
         <<: *base-args
         CMD: prometheuspump
     ports:
-      - "2112:2112"    
+      - "2112:2112"
+    networks:
+      - host-bridge-net
 
-  prometheus-pump-withtestserver:
-    container_name: prometheus-ingester
-    <<: *prometheus-pump
-    depends_on:
-      - prometheus
-      # - activemq
-    profiles:
-      - prometheus-test-db
+  # prometheus-pump-withtestserver:
+  #   <<: *prometheus-pump
+  #   container_name: prometheus-ingester
+  #   depends_on:
+  #     - prometheus
+  #     - activemq
+  #   profiles:
+  #     - prometheus-test-db
 
   setup-prometheus-pump:
     build:
@@ -295,7 +301,7 @@ services:
       - setup-prometheus-test-db
     depends_on:
       - prometheus
-      # - activemq
+      - activemq
     restart: "no"
     environment:
       <<: *prometheus-env
