@@ -2,6 +2,8 @@ from flask import Flask
 import time
 app = Flask("dataserv")
 
+import calculate_averages
+
 from esxtop_metric_server import esxtop_bp
 # from promql_metric_server import promql_bp
 # from etcd_metric_server import  etcd_bp

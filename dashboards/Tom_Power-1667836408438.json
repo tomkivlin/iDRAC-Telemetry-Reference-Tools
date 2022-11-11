@@ -1,0 +1,1129 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "1Dq79ZDVz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "{ServiceTag=\"3W1DFV2\", __name__=\"PowerEdge_PowerMetrics_SystemInputPower\", instance=\"prometheus-ingester:2112\", job=\"prometheus-ingester\"}"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "1Dq79ZDVz"
+          },
+          "editorMode": "builder",
+          "expr": "PowerEdge_PowerMetrics_SystemInputPower",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "System Input Power",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Fj6i3FvVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "builder",
+          "expr": "PhysicalCpu_Total_%UtilTime",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Total % Utilisation",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "1Dq79ZDVz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "{ServiceTag=\"3W1DFV2\", __name__=\"PowerEdge_PowerMetrics_TotalCPUPower\", instance=\"prometheus-ingester:2112\", job=\"prometheus-ingester\"}"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "1Dq79ZDVz"
+          },
+          "editorMode": "builder",
+          "expr": "PowerEdge_PowerMetrics_TotalCPUPower",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "1Dq79ZDVz"
+          },
+          "editorMode": "code",
+          "expr": "avg(PowerEdge_PowerMetrics_TotalCPUPower)",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Total CPU Power",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Fj6i3FvVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU0_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu0"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU1_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu1"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU2_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu2"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU3_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu3"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU4_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu4"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU5_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu5"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU6_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu6"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU7_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu7"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU8_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu8"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU9_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu9"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU10_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu10"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU11_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu11"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU12_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu12"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU13_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu13"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU14_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu14"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU15_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu15"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU16_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu16"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU17_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu17"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU18_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu18"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU19_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu19"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU20_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu20"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU21_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu21"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU22_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu22"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU23_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu23"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU24_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu24"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU25_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu25"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU26_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu26"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU27_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu27"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU28_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu28"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU29_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu29"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU30_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu30"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU31_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu31"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU32_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu32"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU33_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu33"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU34_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu34"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU35_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu35"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU36_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu36"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU37_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu37"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU38_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu38"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU39_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu39"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU40_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu40"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU41_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu41"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU42_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu42"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU43_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu43"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU44_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu44"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU45_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu45"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU46_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu46"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU47_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu47"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU48_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu48"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU49_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu49"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU50_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu50"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU51_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu51"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU52_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu52"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU53_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu53"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU54_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu54"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Fj6i3FvVk"
+          },
+          "editorMode": "code",
+          "expr": "PCPUPowerStatePCPU55_%C-StateC0",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "cpu55"
+        }
+      ],
+      "title": "%C0",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2022-11-07T15:36:36.970Z",
+    "to": "2022-11-07T15:44:53.521Z"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Tom_Power",
+  "uid": "MEzA9WDVz",
+  "version": 25,
+  "weekStart": ""
+}

@@ -128,8 +128,8 @@ def reloadMetrics():
     columnMap = dict()
     metrics = dict()
 
-    for fname in listdir('/csv/data/esxtop'):
-        fullPath = join('/csv/data/esxtop',fname)
+    for fname in listdir('/import/data/esxtop'):
+        fullPath = join('/import/data/esxtop',fname)
         if isfile(fullPath) and fname[0] != "." :
             print(">>>> Loading " + fname)
             with open(fullPath) as f:    
@@ -138,6 +138,12 @@ def reloadMetrics():
                 for line in f:
                     columns = line.split(",")        
                     index = 0
+                    # count_vals_c0 = 0
+                    # sum_vals_c0 = 0
+                    # count_vals_c1 = 0
+                    # sum_vals_c1 = 0
+                    # count_vals_c2 = 0
+                    # sum_vals_c2 = 0
                     if firstLine:
                         firstLine = False
                         metrics["time"] = []
@@ -164,7 +170,22 @@ def reloadMetrics():
                         metrics["time"].append(timeToMillis(columns[0].replace('"', '')))
                         for col in columnMap:
                             val = columns[columnMap[col]].replace('"', '')
+                            # if "StateC0" in col:
+                            #     sum_vals_c0 = sum_vals_c0 + float(val)
+                            #     count_vals_c0 = count_vals_c0 + 1
+                            # elif "StateC1" in col:
+                            #     sum_vals_c1 = sum_vals_c1 + float(val)
+                            #     count_vals_c1 = count_vals_c1 + 1
+                            # elif "StateC2" in col:
+                            #     sum_vals_c2 = sum_vals_c2 + float(val)
+                            #     count_vals_c2 = count_vals_c2 + 1
                             metrics[col].append(val)
+                        # avg_c0 = sum_vals_c0 / count_vals_c0
+                        # print(avg_c0)
+                        # avg_c1 = sum_vals_c1 / count_vals_c1
+                        # print(avg_c1)
+                        # avg_c2 = sum_vals_c2 / count_vals_c2
+                        # print(avg_c2)
 
 print(">>>> Initialized esxtop datasource")
 

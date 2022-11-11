@@ -3,9 +3,9 @@ services:
     container_name: dataserv
     build: ./dataserv
     volumes: 
-        - ./dataserv:/csv:z
+        - ./dataserv:/import:z
     networks:
-      - idrac-telemetry-reference-tools_host-bridge-net
+      - docker-compose-files_host-bridge-net
     ports:
       - 5000:5000
   # grafana:
@@ -13,5 +13,5 @@ services:
   #   ports: 
   #     - 3000:3000
 networks:
-  idrac-telemetry-reference-tools_host-bridge-net:
+  docker-compose-files_host-bridge-net:
     external: true

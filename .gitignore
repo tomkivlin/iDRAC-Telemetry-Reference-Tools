@@ -5,3 +5,9 @@ vendor/
 
 # docker-build related files
 .env
+
+# CSV files
+*.csv
+
+#Python files
+*.pyc
