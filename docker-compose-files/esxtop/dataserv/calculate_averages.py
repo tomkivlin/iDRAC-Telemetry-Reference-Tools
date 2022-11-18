@@ -28,9 +28,7 @@ def calculateAvgs(inputFile):
         C1_columns = []
         C2_columns = []
         for row in csv_reader:
-            print('About to read row')
             if firstLine:
-                print('Reading the first row')
                 firstLine = False
                 j = 0
                 flag = 0
@@ -38,24 +36,18 @@ def calculateAvgs(inputFile):
                     item = row[j]
                     if ('C0' in item):
                         C0_columns.append(j)
-                        # print(item+' is in column '+str(j))
                     elif ('C1' in item):
                         C1_columns.append(j)
-                        # print(item+' is in column '+str(j))
                     elif ('C2' in item):
                         C2_columns.append(j)
-                        # print(item+' is in column '+str(j))
                     j = j+1
                     if(j >= len(row)):
                         flag = -1
-                print(C0_columns)
-                print(C1_columns)
-                print(C2_columns)
                 row.append('\\esxi5.\PCPU Power State(%C0 AVG)')
                 row.append('\\esxi5.\PCPU Power State(%C1 AVG)')
                 row.append('\\esxi5.\PCPU Power State(%C2 AVG)')
             else:
-                print('Reading another row')
+                # print('Reading another row')
                 k = 0
                 flag = 0
                 while flag!=-1:
@@ -72,24 +64,19 @@ def calculateAvgs(inputFile):
                     if(k >= len(row)):
                         flag = -1
                 avg_c0 = sum_vals_c0 / count_vals_c0
-                print(avg_c0)
                 avg_c1 = sum_vals_c1 / count_vals_c1
-                print(avg_c1)
                 avg_c2 = sum_vals_c2 / count_vals_c2
-                print(avg_c2)
                 row.append(avg_c0)
                 row.append(avg_c1)
                 row.append(avg_c2)
             # Add the updated row / list to the output file
             csv_writer.writerow(row)
         print('Finished writing...')
-        print(os.listdir('/import/data/esxtop'))
 
 for fname in os.listdir('/import/data/esxtop'):
     fullPath = os.path.join('/import/data/esxtop',fname)
     newPath = os.path.join('/import/data/archive',fname)
     if os.path.isfile(fullPath) and fname[0] != "." :
-        print(fullPath)
         calculateAvgs(fullPath)
 
 os.rename(fullPath, newPath)
