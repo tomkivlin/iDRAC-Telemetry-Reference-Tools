@@ -355,7 +355,6 @@ curl -X POST --user admin:admin ${GRAFANA_URL}/api/user/using/$grafana_org_id
 
 # get api key for user
 curl -X POST -H "Content-Type: application/json" --user admin:admin -d '{"name":"apikeycurl", "role": "Admin"}' ${GRAFANA_URL}/api/auth/keys
-# {"name":"apikeycurl","key":"eyJrIjoiR0ZXZmt1UFc0OEpIOGN5RWdUalBJTllUTk83VlhtVGwiLCJuIjoiYXBpa2V5Y3VybCIsImlkIjo2fQ=="}
 
 #below commented code can be removed after triaging the 5 sec sleep before getting the grafana_apikey
 #if [[ -z $GRAFANA_APIKEY ]]; then
